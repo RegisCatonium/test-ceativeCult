@@ -1,0 +1,678 @@
+@import config
+
+.burger
+	display: none
+	width: 1.7rem
+	height: 1.5rem
+	padding: 0
+	position: relative
+	background: none
+	border: none
+	font-size: 0
+	color: transparent
+	&::before, &::after,
+	span
+		display: block
+		width: 100%
+		height: 2px
+		background-color: #1e1e1e
+		position: absolute
+	&::before, &::after
+		content: ''
+		transition: transform .2s linear
+	&::before
+		top: 0
+	&::after
+		bottom: 0
+	span
+		top: 50%
+		transform: translateY(-50%)
+		transition: opacity .2s linear
+// -- burger --
+
+
+.link
+	padding-right: 2rem
+	font-size: 1.5rem
+	color: #1E1E1E
+	position: relative
+	&::after
+		content: ''
+		display: block
+		background-image: url(../images/icon/angle.svg)
+		width: 1.2rem
+		height: 1.2rem
+		background-repeat: no-repeat
+		background-size: contain
+		opacity: .8
+		position: absolute
+		top: .4rem
+		right: 0
+
+.btn, a.btn, button.btn
+	display: inline-block
+	padding: 1.2rem 3.2rem
+	font-size: 1.5rem
+	font-weight: 400
+	line-height: 1.48
+	text-align: center
+	background-color: $accent
+	color: #fff
+	border: 2px solid rgba($accent, 0)
+	transition: all .3s linear
+	&:hover
+		color: $accent
+		background-color: transparent
+		border: 2px solid rgba($accent, .8)
+
+.header-top
+	display: flex
+	justify-content: space-between
+	width: 100%
+	padding: 2.4rem 12rem
+	border-bottom: 1px solid #EAEAEA
+	box-sizing: border-box
+	&__logo
+		display: flex
+		align-items: center
+		max-width: 58.5rem
+		gap: 2.4rem
+
+	&__img
+		width: 20.1rem
+		height: 3.2rem
+	&__text
+		margin: 0
+		font-size: 1.1rem
+		line-height: 1.58
+		color: #8F9090
+
+	&__list
+		display: flex
+		align-items: center
+		
+		gap: 3.2rem
+		list-style: none
+		margin: 0
+		padding: 0
+		a
+			font-size: 1.4rem
+			color: $accent
+			transition: color .3s linear
+			&:hover
+				color: lighten($accent, 20%)
+	&__feedback
+		position: relative
+		padding-left: 2.4rem
+		&::before
+			content: ''
+			width: 1.52rem
+			height: 1.22rem
+			background-image: url(../images/icon/envelope.svg)
+			background-repeat: no-repeat
+			background-size: cover
+			background-position: center
+			position: absolute
+			left: 0
+			top: 0.2rem
+	&__search
+		width: 2rem
+		height: 2rem
+
+.nav
+	width: 100%
+	padding: 0 12rem
+	&__list
+		display: flex
+		justify-content: space-between
+		list-style-type: none
+		margin: 0
+		padding: 0
+	&__item
+		padding: 1.6rem 0
+		position: relative
+		transition: background-color .3s ease-in
+		&:hover
+			background-color: lighten(#000, 80%)
+			>.subnav
+				display: block
+
+	&__link
+		display: block
+		padding: 0 1.5rem
+		line-height: 1.48
+		color: $textcolor
+		transition: background-color .3s ease-in
+
+		&.has-subnav
+			position: relative
+			padding-right: 3.5rem
+			&:after
+				position: absolute
+				top: 45%
+				right: 1.25rem
+				content: ""
+				display: block
+				border-style: solid
+				border-width: .6rem .5rem 0 .5rem
+				border-color: $accent transparent
+
+.subnav
+	display: none
+	width: 100%
+	padding: 0
+	position: absolute
+	top: 100%
+	left: 0
+	background-color: #fff
+	border-radius: 0 0 5px 5px
+	box-shadow: 0 6px 8px rgba(#000, .2)
+	z-index: 100
+	&__link
+		display: block
+		font-size: 1.4rem
+		line-height: 1
+		color: $accent
+		text-decoration: none
+		transition: background-color .3s ease-in
+	&__item
+		display: block
+		padding: 1.4rem 2rem
+		transition: background-color .2s ease-in
+		&:last-child
+			padding-bottom: 1.2rem
+		&:hover
+			background-color: lighten(#000, 80%)
+
+.slider
+	width: 100%
+	min-height: 60rem
+	padding: 8rem 0
+	position: relative
+	background-color: #F7F7F8
+	&__bg
+		width: 42.6rem
+		height: 100%
+		background-color: #60C0C3
+		position: absolute
+		top: 0
+		right: 0
+	&__item
+		display: flex
+		justify-content: space-between
+		align-items: center
+		padding: 0 12rem
+	&__image
+		width: 51rem
+		img
+			width: 100%
+			height: 100%
+			object-fit: cover
+			filter: drop-shadow(4px 8px 24px rgba(0, 0, 0, 0.2)) drop-shadow(16px 28px 64px rgba(0, 0, 0, 0.16))
+	&__pagination
+		margin-bottom: 3.2rem
+	&__pagination .swiper-pagination-bullet
+		height: .8rem
+		width: .8rem
+		background-color: #D0D0D0
+		transition: all .3s ease
+		opacity: 1
+		&-active
+			background-color: $accent
+			transform: scale(1.3)
+.composition
+	width: 48.6rem
+	min-height: 31.7rem
+	position: relative
+	&__list
+		display: flex
+		gap: 1.6rem
+		margin: 0
+		padding: 0
+		list-style: none
+		&-item
+			width: 4rem
+			height: 4rem
+			img
+				width: 100%
+				height: 100%
+	&__title
+		margin: 1.6rem 0
+		font-size: 3.3rem
+		font-weight: 600
+		line-height: 1.16
+		color: $accent
+	&__text
+		margin: 0
+		font-size: 1.8rem
+		color: $textcolor
+	&__btn
+		display: block
+		padding: 1.2rem 5rem
+		text-align: center
+		font-size: 1.5rem
+		color: $accent
+		border: 1px solid $accent
+		border-radius: 2px
+		position: absolute
+		bottom: 0
+		left: 0
+		overflow: hidden
+		transition: color 1s ease
+		&:hover
+			color: #FFF
+			&::after
+				height: 450%
+		&::after
+			content: ""
+			width: 150%
+			height: 0%
+			background: lighten($accent, 20%)
+			transform: translateX(-50%) translateY(-50%) rotate(25deg)
+			position: absolute
+			left: 50%
+			top: 50%
+			z-index: -1
+			transition: height .75s ease
+
+.product
+	padding: 8rem 12rem
+	display: flex
+	justify-content: space-between
+	&__catalog
+		flex-basis: 28.2rem
+	&__title
+		margin: 0
+		margin-bottom: 2.4rem
+		font-size: 2.9rem
+		font-weight: 600
+		color: $accent
+
+	&__list
+		flex-basis: 20rem
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		margin: 0
+		padding: 0 0 0 1.6rem
+		list-style: none
+		border-left: 1px solid #E1E1E1
+	&__item
+		margin-bottom: 1.8rem
+		font-size: 1.7rem
+		&:last-child
+			margin-bottom: 0
+
+.description
+	width: 100%
+	padding: 8rem 12rem
+	background-color: $accent
+	color: #fff
+	&__polair
+		width: 78rem
+		margin: 0 auto 10rem
+		font-size: 2.3rem
+		line-height: 1.3
+		text-align: center
+
+	&__list
+		display: flex
+		justify-content: space-between
+		width: 100%
+		margin: 0
+		padding: 0
+		list-style: none
+	&__item
+		position: relative
+		&::before
+			content: ''
+			display: block
+			width: 8.8rem
+			height: 8.8rem
+			background-repeat: no-repeat
+			background-position: center
+			background-size: contain
+			position: absolute
+			top: -1.4rem
+			left: -4.4rem
+			z-index: 1
+		&_rhomb::before
+			background-image: url(../images/icon/icon-rhomb.svg)
+		&_heart::before
+			background-image: url(../images/icon/icon-heart.svg)
+		&_circle::before
+			background-image: url(../images/icon/icon-circle.svg)
+		&_diamond::before
+			background-image: url(../images/icon/icon-diamond.svg)
+	&__info
+		margin: 0 0 .8rem
+		font-size: 5.1rem
+		font-weight: 600
+		line-height: 1.1
+		position: relative
+		z-index: 10
+		& span
+			font-size: 2.8rem
+	&__text
+		margin: 0
+		position: relative
+		z-index: 10
+
+.title
+	font-size: 2.9rem
+	font-weight: 600
+	line-height: 1.16
+	margin: 0 0 1.6rem
+	color: $accent
+	span
+		display: block
+		margin-bottom: .8rem
+		font-size: 1.3rem
+		line-height: 1.4
+		letter-spacing: .08em
+		text-transform: uppercase
+		color: #888
+
+.quality
+	display: flex
+	width: 100%
+	&__img
+		width: 50%
+		object-fit: contain
+	&__description
+		padding: 10.4rem 22rem 10.4rem 8rem
+		background-color: #F2F6FB
+		position: relative
+		& .link
+			position: absolute
+			bottom: 10.4rem
+	&__text
+		margin: 0
+
+.assist
+	display: flex
+	justify-content: space-between
+	padding: 20.8rem 12rem 6.4rem
+	&__description
+		width: 28.2rem
+		align-self: flex-end
+	&__cards
+		display: flex
+		gap: 2.4rem
+	&__card
+		display: flex
+		flex-direction: column
+		justify-content: flex-end
+		width: 38.4rem
+		min-height: 46.8rem
+		padding: 0 3.2rem 4rem
+		background-color: #F2F6FB
+		position: relative
+	&__img
+		width: 100%
+		height: 30.8rem
+		position: absolute
+		top: -14rem
+		left: 0
+		& img
+			display: block
+			margin: 0 auto
+			height: 100%
+			object-fit: contain
+	&__title
+		margin: 0 0 1.6rem
+		font-size: 2.4rem
+		font-weight: 600
+		line-height: 1.1
+		color: #1e1e1e
+	&__text
+		margin: 0 0 4rem
+		line-height: 1.74
+	& .btn
+		align-self: flex-start
+
+.news
+	width: 100%
+	padding: 6.4rem 12rem 8rem
+	&__header
+		display: flex
+		justify-content: space-between
+		align-items: center
+		margin-bottom: 3.2rem
+	&__title
+		margin: 0
+		font-size: 2.9rem
+		font-weight: 600
+		line-height: 1.16
+		color: $accent
+	&__content
+		display: flex
+		justify-content: space-between
+
+.new
+	width: 38.4rem
+	height: 48.3rem
+	background-color: #F7F7F8
+	padding-bottom: 3.2rem
+	transition: transform .3s linear
+	&:hover
+		transform: translateY(-2rem)
+	&__img
+		width: 100%
+		border-radius: 2px
+	&__wrap
+		padding: 2.2rem 2.4rem 0
+		display: -webkit-box
+		-webkit-line-clamp: 5
+		-webkit-box-orient: vertical
+		overflow: hidden
+	&__date
+		margin: 0 0 1.6rem
+		font-size: 1.2rem
+		color: $textcolor
+		& time
+			padding-left: 1.5rem
+			color: #8F9090
+			position: relative
+			&::before
+				content: '\25CF'
+				font-size: .8em
+				color: #D0D0D0
+				position: absolute
+				top: 0
+				left: .3rem
+	&__title
+		margin: 0 0 .8rem
+		font-size: 1.8rem
+		font-weight: 600
+		line-height: 1.52
+		color: #000103
+	&__text
+		margin: 0
+		font-size: 1.4rem
+		color: #888
+
+.catalog
+	width: 100%
+	padding: 16rem 12rem 4.8rem
+	background-image: url(../images/bg-img-2.jpg)
+	background-size: cover
+	background-repeat: no-repeat
+	background-position: center
+	&__content
+		width: 47.2rem
+		padding: 4rem
+		background-color: #F2F6FB
+	&__text
+		margin: 0 0 4rem
+
+.brand
+	width: 100%
+	padding: 6.4rem 12rem
+	&-mb
+		display: none
+	& .title
+		margin: 0
+	&__content
+		display: flex
+		flex-wrap: wrap
+	&__item
+		flex-basis: 25%
+		padding: 0 4.8rem 0 1.6rem
+		margin-top: 4rem
+		border-left: 1px solid #E1E1E1
+	&__logo
+		display: inline-block
+		max-width: 17rem
+		height: 4.2rem
+		margin-bottom: .8rem
+
+	&__text
+		margin: 0
+		font-size: 1.4rem
+		color: #888888
+		&_first
+			color: $textcolor
+
+.footer
+	background-color: $accent
+	&__top
+		padding: 7.2rem 12rem 8.8rem
+		border-bottom: 1px solid #174463
+
+	&__line
+		display: flex
+		gap: 16.2rem
+		width: 53.8rem
+		margin-top: 2.4rem
+		padding-top: 2.4rem
+		border-top: 1px solid #174463
+
+	&__link
+		width: 17.6rem
+		margin: 0
+		font-size: 1.4rem
+		color: #EAEAEA
+		&:hover
+			color: #fff
+			text-shadow: 0 0 15px rgba(#fff, .5)
+
+#checkbox
+	display: none
+.menu-mb__label, .menu-mb__span
+	display: none
+
+.menu
+	display: flex
+	justify-content: space-between
+	padding-bottom: 2.4rem
+	&__list
+		max-width: 20rem
+		margin: 0
+		padding: 0
+		list-style: none
+	&__span
+		margin-bottom: 2rem
+		font-size: 1.8rem
+		font-weight: 600
+		color: #fff
+		&_first
+			margin-bottom: 2.4rem
+			font-size: 2.1rem
+	&__item
+		margin-bottom: 1.4rem
+		&:last-child
+			margin-bottom: 0
+	&__nav-item
+		margin-bottom: 2.4rem
+		&_mb
+			display: none
+		&:last-child
+			margin-bottom: 0
+		& .menu__link
+			font-size: 1.8rem
+			font-weight: 600
+			color: #fff
+	&__link
+		font-size: 1.4rem
+		color: #EAEAEA
+		transition: all .2s ease
+		&:hover
+			color: #fff
+			text-shadow: 0 0 15px rgba(#fff, .5)
+
+.social
+	display: flex
+	align-items: center
+	gap: 1.4rem
+	margin: 0
+	padding: 0
+	list-style: none
+	&__item
+		width: 2.4rem
+		height: 2.4rem
+	&__icon
+		width: 100%
+		height: 100%
+
+.footer-bottom
+	display: flex
+	flex-direction: column
+	gap: 2.4rem
+	width: 100%
+	padding: 8.8rem 12rem 7.2rem
+
+	&__item
+		display: flex
+		justify-content: space-between
+		align-items: top
+
+	&__logo
+		height: 3.2rem
+		object-fit: contain
+	&__contacts
+		display: flex
+		width: 52.3rem
+		gap: 7.2rem
+
+	&__phone
+		font-size: 2.1rem
+		font-weight: 600
+		line-height: 1.2
+		color: #fff
+		& span
+			display: block
+			font-size: 1.1rem
+			font-weight: 400
+			line-height: 1.58
+			color: #eaeaea
+	&__text
+		font-size: 1.2rem
+		margin: 0
+		color: #eaeaea
+		&_right
+			width: 52.3rem
+	&__list
+		display: flex
+		gap: 2.4rem
+		margin: 0
+		padding: 0
+		list-style: none
+		font-size: 1.2rem
+		& a
+			color: #eaeaea
+			span
+				text-transform: uppercase
+				font-weight: 600
+				color: #fff
+			&:hover
+				color: #fff
+				text-shadow: 0 0 15px rgba(#fff, .5)
+	&__down
+		width: 52.3rem
+		&-text
+			margin: 0 0 .8rem
+			font-size: 1rem
+			color: #D0D0D0
+			&:last-child
+				margin: 0

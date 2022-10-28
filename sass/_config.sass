@@ -1,0 +1,34 @@
+// USER VARIABLES SECTION
+
+$accent: #003154 // Accent Color
+$textcolor: #404040 // Text Color
+$fontsize: 1.5rem // Body Font Size
+$lineheight: 1.58 // Document Line Height
+$userfont: 'golos', sans-serif // User Font Family
+
+@font-face
+	font-family: "golos"
+	src: url("../fonts/golos-regular.woff2")
+@font-face
+	font-family: "golos-demiBold"
+	src: url("../fonts/golos-demibold.woff2")
+
+*
+	box-sizing: border-box
+
+html, body
+	overflow-x: hidden
+html
+	font-size: calc(100vw/1440*10)
+
+a
+	text-decoration: none
+
+body
+	font-family: $userfont
+	font-size: $fontsize
+	line-height: $lineheight
+	color: $textcolor
+	min-width: 32rem
+	position: relative
+
